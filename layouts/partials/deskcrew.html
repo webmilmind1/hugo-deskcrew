@@ -1,0 +1,26 @@
+{{- /*
+  DeskCrew support widget. Configure in hugo.toml:
+
+    [params.deskcrew]
+      key = "pub_your_widget_key"   # from your DeskCrew dashboard, Install page
+      board = "your-board"          # optional
+      color = "#4f46e5"             # optional, 6-digit hex
+      position = "right"            # optional, or "left"
+      greeting = "Hi! How can we help?"  # optional
+      enabled = true
+
+  Then {{ partial "deskcrew.html" . }} before </body> in your base template, or use this
+  theme as a component and add the partial to your theme's layouts/partials/hooks.
+  Values are validated, then HTML-escaped by Hugo; a missing or malformed key renders nothing.
+*/ -}}
+{{- $cfg := .Site.Params.deskcrew | default dict -}}
+{{- $key := $cfg.key | default "" -}}
+{{- $enabled := true -}}
+{{- if isset $cfg "enabled" }}{{ $enabled = $cfg.enabled }}{{ end -}}
+{{- if and $enabled (findRE `^pub_[A-Za-z0-9]+$` $key) -}}
+<script src="https://deskcrew.io/desk.js" data-key="{{ $key }}"
+  {{- with $cfg.board }}{{ if findRE `^[a-z0-9-]+$` . }} data-board="{{ . }}"{{ end }}{{ end -}}
+  {{- with $cfg.color }}{{ if findRE `^#[0-9a-fA-F]{6}$` . }} data-color="{{ . }}"{{ end }}{{ end -}}
+  {{- with $cfg.position }}{{ if in (slice "left" "right") . }} data-position="{{ . }}"{{ end }}{{ end -}}
+  {{- with $cfg.greeting }} data-greeting="{{ truncate 120 "" . }}"{{ end }} defer></script>
+{{- end -}}

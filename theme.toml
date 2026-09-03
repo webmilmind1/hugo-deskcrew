@@ -1,0 +1,13 @@
+name = "DeskCrew"
+license = "MIT"
+licenselink = "https://github.com/webmilmind1/hugo-deskcrew/blob/main/LICENSE"
+description = "Theme component that adds the DeskCrew AI support widget (live chat, AI answers from your knowledge base, a help center) to every page of a Hugo site."
+homepage = "https://deskcrew.io/integrations/hugo"
+demosite = "https://deskcrew.io"
+tags = ["component", "support", "chat", "helpdesk", "widget"]
+features = ["theme component", "live chat", "support widget"]
+min_version = "0.110.0"
+
+[author]
+  name = "DeskCrew"
+  homepage = "https://deskcrew.io"

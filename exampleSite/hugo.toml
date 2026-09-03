@@ -1,0 +1,7 @@
+baseURL = "https://example.org/"
+title = "DeskCrew component example"
+[module]
+  [[module.imports]]
+    path = "github.com/webmilmind1/hugo-deskcrew"
+[params.deskcrew]
+  key = "pub_your_widget_key"
