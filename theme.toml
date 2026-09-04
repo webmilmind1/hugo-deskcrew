@@ -1,11 +1,11 @@
 name = "DeskCrew"
 license = "MIT"
 licenselink = "https://github.com/webmilmind1/hugo-deskcrew/blob/main/LICENSE"
-description = "Theme component that adds the DeskCrew AI support widget (live chat, AI answers from your knowledge base, a help center) to every page of a Hugo site."
+description = "Live chat, AI support chatbot and help center for Hugo sites. A theme component that adds the DeskCrew support widget to every page from one partial and a few lines in hugo.toml: visitors get answers from your knowledge base, unanswered questions become tickets, and a human approves every reply. Works alongside any theme (PaperMod, Docsy, Hextra, Book, Ananke). Free plan."
 homepage = "https://deskcrew.io/integrations/hugo"
 demosite = "https://deskcrew.io"
-tags = ["component", "support", "chat", "helpdesk", "widget"]
-features = ["theme component", "live chat", "support widget"]
+tags = ["component", "support", "chat", "live chat", "helpdesk", "widget", "ai", "chatbot", "docs", "documentation", "knowledge base", "contact", "customer service", "saas"]
+features = ["theme component", "live chat", "ai chatbot", "support tickets", "help center", "knowledge base", "contact form replacement", "hugo module", "no javascript to write"]
 min_version = "0.110.0"
 
 [author]

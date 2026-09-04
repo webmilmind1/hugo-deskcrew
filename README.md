@@ -2,9 +2,17 @@
 
 ![DeskCrew widget for Hugo](https://deskcrew.io/packages/deskcrew-hugo.gif)
 
-A Hugo theme component that adds the [DeskCrew](https://deskcrew.io) support widget to every page: live chat, AI answers grounded in your knowledge base, and a help center. One partial, configured from `hugo.toml`.
+**Live chat, an AI support chatbot and a help center for Hugo, from one partial and a few lines in `hugo.toml`.** hugo-deskcrew is a theme component that adds the [DeskCrew](https://deskcrew.io) support widget to every page of a Hugo site: visitors chat with an AI that answers from your knowledge base, anything it cannot answer becomes a ticket, and a human approves every reply before it sends. It sits alongside your existing theme, so nothing in it changes.
 
-You need a free DeskCrew account to get a widget key: https://deskcrew.io/signup
+Works with PaperMod, Docsy, Hextra, Book, Ananke, Blowfish and any other theme, as a Hugo module or a theme component, on Netlify, Cloudflare Pages, Vercel and GitHub Pages. Free plan, no credit card: https://deskcrew.io/signup
+
+## Use it for
+
+- **Live chat on a Hugo blog or documentation site** without editing the theme's templates.
+- **An AI chatbot for docs**: it answers from the help articles you publish and hands off to a person when it is unsure.
+- **A contact form replacement**: visitors ask in the widget, you get a ticket, no form backend or serverless function to host.
+- **A help center for a static product or SaaS marketing site** that stays on your domain.
+- **Replacing a paid chat widget** (Tawk.to, Crisp, Intercom, Zendesk) with one that starts free and never sends a reply you did not approve.
 
 ## Install
 
@@ -38,6 +46,40 @@ Then, once, in the base template your pages extend (usually `layouts/_default/ba
 ```
 
 Rebuild the site. The launcher appears on every generated page. Values from `hugo.toml` are validated and escaped; a missing or malformed key renders nothing.
+
+## FAQ
+
+### How do I add live chat to a Hugo site?
+
+Import this component as a Hugo module (or clone it into `themes/`), put your widget key under `[params.deskcrew]` in `hugo.toml`, and call `{{ partial "deskcrew.html" . }}` once before `</body>` in your base template. Every page gets the chat bubble on the next build.
+
+### Does it work with PaperMod, Docsy, Hextra or Book?
+
+Yes. It is a theme component, not a theme, so it stacks on top of whatever theme you run. If your theme already exposes a hook for extra body content (PaperMod's `extend_footer.html`, Docsy's `hooks/body-end.html`, Hextra's `custom/body-end.html`), put the partial call there and you never touch `baseof.html`.
+
+### Does it work on GitHub Pages?
+
+Yes. The output is one script tag in your generated HTML, so any host that serves the built site works, including GitHub Pages built with a GitHub Actions workflow, Netlify, Cloudflare Pages and Vercel.
+
+### Does it change my theme or styles?
+
+No. The partial renders a single script tag, and the widget runs inside a Shadow DOM so your CSS and its CSS never collide. Remove the partial call and the site is exactly as before.
+
+### Can I turn it off in development or on some pages?
+
+Set `enabled = false` under `[params.deskcrew]` in a development config (for example `config/development/hugo.toml`) to keep the component installed with the widget off. To skip specific pages, wrap the partial call in a condition on the page's front matter.
+
+### Is the AI chatbot going to make things up?
+
+It answers only from the knowledge base you publish on DeskCrew and says so when it does not know. Anything it cannot answer becomes a ticket, and a person approves every outbound reply.
+
+### Is there a free plan?
+
+Yes. The free plan includes the chat widget, ticketing, a public help center and a monthly AI answer allowance, with no credit card: https://deskcrew.io/pricing
+
+### Which Hugo versions are supported?
+
+Hugo 0.110 and newer, standard or extended build.
 
 ## What the component adds to your site
 
