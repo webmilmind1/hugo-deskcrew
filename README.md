@@ -12,7 +12,6 @@ Works with PaperMod, Docsy, Hextra, Book, Ananke, Blowfish and any other theme, 
 - **An AI chatbot for docs**: it answers from the help articles you publish and hands off to a person when it is unsure.
 - **A contact form replacement**: visitors ask in the widget, you get a ticket, no form backend or serverless function to host.
 - **A help center for a static product or SaaS marketing site** that stays on your domain.
-- **Replacing a paid chat widget** (Tawk.to, Crisp, Intercom, Zendesk) with one that starts free and never sends a reply you did not approve.
 
 ## Install
 
@@ -75,7 +74,7 @@ It answers only from the knowledge base you publish on DeskCrew and says so when
 
 ### Is there a free plan?
 
-Yes. The free plan includes the chat widget, ticketing, a public help center and a monthly AI answer allowance, with no credit card: https://deskcrew.io/pricing
+Yes. The component is MIT and the DeskCrew free plan includes the chat widget, ticketing, a public help center and a monthly AI answer allowance, with no credit card.
 
 ### Which Hugo versions are supported?
 

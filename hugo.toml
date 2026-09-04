@@ -1,0 +1,5 @@
+# Hugo version this component supports. The theme metadata for humans lives in theme.toml.
+[module]
+  [module.hugoVersion]
+    extended = false
+    min = "0.110.0"
